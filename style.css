@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  background: #222;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #444;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #666;
+}
+
+.page {
+  padding: 20px;
+}
+
+.artikel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background: #222;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.artikel button {
+  margin: 0 5px;
+}
+
+.gesamt {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
