@@ -19,13 +19,18 @@
 
     <div class="gesamt">
       <p>Gesamtbetrag: <span id="gesamtBetrag">0.00 €</span></p>
-      <p>Becherpfand: <span id="pfandBetrag">0.00 €</span></p>
     </div>
   </section>
 
   <!-- Seite: Einstellungen -->
   <section id="einstellungen" class="page" style="display:none;">
     <h1>Einstellungen</h1>
+
+    <div>
+      <label>Anzahl Artikel: </label>
+      <input type="number" id="anzahlArtikel" min="1" max="12" value="3" onchange="updateArtikelCount()">
+    </div>
+
     <div id="artikelEinstellungen"></div>
 
     <div>

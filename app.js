@@ -38,8 +38,9 @@ function renderEinstellungen() {
   artikel.forEach((a, i) => {
     const div = document.createElement("div");
     div.innerHTML = `
-      <label>${a.name} Preis (€): </label>
-      <input type="number" value="${a.preis}" step="0.1" onchange="setPreis(${i}, this.value)">
+      <label>Artikel ${i + 1}:</label>
+      <input type="text" value="${a.name}" placeholder="Name" onchange="setName(${i}, this.value)">
+      <input type="number" value="${a.preis}" step="0.1" placeholder="Preis" onchange="setPreis(${i}, this.value)">
     `;
     container.appendChild(div);
   });
@@ -51,15 +52,27 @@ function changeAnzahl(i, delta) {
   renderBestellung();
 }
 
+function setName(i, val) {
+  artikel[i].name = val;
+}
+
 function setPreis(i, val) {
   artikel[i].preis = parseFloat(val);
 }
 
+function updateArtikelCount() {
+  const neueAnzahl = parseInt(document.getElementById("anzahlArtikel").value);
+  if (neueAnzahl > artikel.length) {
+    while (artikel.length < neueAnzahl) artikel.push({ name: "Neu", preis: 0, anzahl: 0 });
+  } else {
+    artikel = artikel.slice(0, neueAnzahl);
+  }
+  renderEinstellungen();
+}
+
 function updateGesamt() {
   let summe = artikel.reduce((acc, a) => acc + a.preis * a.anzahl, 0);
-  let pfandSumme = artikel.reduce((acc, a) => acc + a.anzahl, 0) * pfand;
   document.getElementById("gesamtBetrag").textContent = summe.toFixed(2) + " €";
-  document.getElementById("pfandBetrag").textContent = pfandSumme.toFixed(2) + " €";
 }
 
 function saveSettings() {
