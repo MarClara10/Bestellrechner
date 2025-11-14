@@ -1,45 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bestellrechner WebApp</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Bestellrechner - Webversion" />
+  <title>Bestellrechner</title>
   <link rel="stylesheet" href="style.css">
+
+
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;max-width:900px;margin:10px auto;padding:12px}
+    h1{margin:6px 0 12px}
+    .item{display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid #eee}
+    .item .name{flex:1}
+    .qty{display:inline-flex;align-items:center;gap:6px}
+    button{padding:6px 10px;border-radius:6px;border:1px solid #ccc;background:#f7f7f7}
+    input[type="number"]{width:80px;padding:6px}
+    .total-row{display:flex;justify-content:space-between;padding:12px 8px;font-weight:700}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.4)}
+    .modal .box{background:#fff;padding:16px;border-radius:8px;width:90%;max-width:480px}
+    label{display:block;margin-top:8px}
+    .small{font-size:0.9rem;color:#555}
+  </style>
+
 </head>
 <body>
-  <header>
-    <button onclick="showPage('bestellung')">Bestellung</button>
-    <button onclick="showPage('einstellungen')">Einstellungen</button>
-  </header>
+  <h1>Bestellrechner (Web)</h1>
 
-  <!-- Seite: Bestellung -->
-  <section id="bestellung" class="page">
-    <h1>Bestellung</h1>
-    <div id="artikelListe"></div>
+  <div class="controls">
+    <button id="btnSettings">Einstellungen</button>
+    <button id="btnReset">Daten Zurücksetzen</button>
+  </div>
 
-    <div class="gesamt">
-      <p>Gesamtbetrag: <span id="gesamtBetrag">0.00 €</span></p>
+  <div id="items"></div>
+
+  <div class="total-row">
+    <div>Gesamt:</div>
+    <div id="grandTotal">0,00 €</div>
+  </div>
+
+  
+
+  <!-- Settings Modal -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="box">
+      <h3>Einstellungen</h3>
+      <div id="settingsList"></div>
+      <label>Pfand (€):
+        <input type="number" step="0.01" id="pfandInput" />
+      </label>
+      <label>
+        Anzahl sichtbarer Artikel:
+        <input id="visibleCountInput" type="number" min="1" max="12">
+      </label>
+
+      <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
+        <button id="saveSettingsBtn">Speichern</button>
+        <button id="closeModalBtn">Schließen</button>
+      </div>
     </div>
-  </section>
-
-  <!-- Seite: Einstellungen -->
-  <section id="einstellungen" class="page" style="display:none;">
-    <h1>Einstellungen</h1>
-
-    <div>
-      <label>Anzahl Artikel: </label>
-      <input type="number" id="anzahlArtikel" min="1" max="12" value="3" onchange="updateArtikelCount()">
-    </div>
-
-    <div id="artikelEinstellungen"></div>
-
-    <div>
-      <label>Becherpfand (€): </label>
-      <input type="number" id="pfandInput" step="0.1" value="0.5">
-    </div>
-
-    <button onclick="saveSettings()">Speichern</button>
-  </section>
+  </div>
 
   <script src="app.js"></script>
 </body>

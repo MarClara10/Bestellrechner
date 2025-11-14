@@ -1,57 +1,128 @@
+/* --- Dark Mode Grundlayout --- */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #111;
-  color: #fff;
+    background-color: #121212;
+    color: #e5e5e5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
-header {
-  display: flex;
-  justify-content: space-around;
-  background: #222;
-  padding: 10px;
+/* Container */
+#items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* Item Box */
+.item {
+    background-color: #1d1d1d;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Artikelname */
+.name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Subtext */
+.small {
+    font-size: 0.9em;
+    color: #b5b5b5;
+}
+
+
+/* --- Buttons allgemein --- */
 button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #444;
-  color: white;
-  cursor: pointer;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
 }
 
-button:hover {
-  background: #666;
+/* + Button → Grün */
+button[data-action="inc"] {
+    background-color: #1f8f32;
+}
+button[data-action="inc"]:hover {
+    background-color: #27b23f;
 }
 
-.page {
-  padding: 20px;
+/* - Button → Rot */
+button[data-action="dec"] {
+    background-color: #b3261e;
+}
+button[data-action="dec"]:hover {
+    background-color: #d1382d;
 }
 
-.artikel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  background: #222;
-  padding: 10px;
-  border-radius: 10px;
+/* Reset Mengen → Rot */
+#btnReset {
+    background-color: #b3261e;
+}
+#btnReset:hover {
+    background-color: #d1382d;
 }
 
-.artikel button {
-  margin: 0 5px;
+
+/* Einstellungen Button (Neutral) */
+#btnSettings {
+    background-color: #333;
+}
+#btnSettings:hover {
+    background-color: #444;
 }
 
-.gesamt {
-  margin-top: 20px;
-  font-size: 1.2em;
-}
-
+/* Textfelder in Dark Mode */
 input {
-  background: #222;
-  border: 1px solid #444;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* Entfernt Nummer-Pfeile (Spinner) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Modal Hintergrund */
+#modal {
+    background: rgba(0,0,0,0.5);
+}
+
+/* Modal Inhalt */
+#modal > div {
+    background: #1d1d1d;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Speichern im Modal → Grün */
+#saveSettingsBtn {
+    background-color: #1f8f32;
+}
+#saveSettingsBtn:hover {
+    background-color: #27b23f;
+}
+
+/* Close Button im Modal */
+#closeModalBtn {
+    background-color: #444;
+}
+#closeModalBtn:hover {
+    background-color: #666;
 }
