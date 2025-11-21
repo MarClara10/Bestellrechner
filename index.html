@@ -31,6 +31,7 @@
   <div class="controls">
     <button id="btnSettings">Einstellungen</button>
     <button id="btnReset">Daten Zurücksetzen</button>
+    <button id="btnPrivacy">Datenschutzerklärung</button>
   </div>
 
   <div id="items"></div>
@@ -62,6 +63,36 @@
     </div>
   </div>
 
+  <!-- Privacy Policy Modal -->
+<div id="modalPrivacy" class="modal" role="dialog" aria-hidden="true">
+  <div class="box">
+    <h3>Datenschutzerklärung</h3>
+
+    <p><strong>Bestellrechner</strong> verarbeitet keinerlei personenbezogene Daten.
+    Die App erfasst, speichert oder übermittelt keine Informationen über den Nutzer.</p>
+
+    <h4>Erhobene Daten</h4>
+    <p>Es werden <strong>keine</strong> Daten gesammelt.
+    Keine Namen, keine E-Mails, keine Standortdaten, keine Geräteinformationen.</p>
+
+    <h4>Lokale Speicherung</h4>
+    <p>Die App speichert ausschließlich lokale Einstellungen (Artikel, Preise, Pfand),
+    die niemals das Gerät verlassen.</p>
+
+    <h4>Datenweitergabe</h4>
+    <p>Es findet keinerlei Weitergabe oder Übertragung von Daten an Dritte statt.</p>
+
+    <h4>Kontakt</h4>
+    <p>Bei Fragen: <br><strong>DEINE EMAIL</strong></p>
+
+    <div style="margin-top:12px;display:flex;justify-content:flex-end">
+      <button id="closePrivacyBtn">Schließen</button>
+    </div>
+  </div>
+</div>
+
+
   <script src="app.js"></script>
 </body>
 </html>
+
