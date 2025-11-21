@@ -164,7 +164,21 @@ window.addEventListener('click', (e)=>{
   if(e.target===modal) closeSettings();
 });
 
+// --- Privacy Modal ---
+const modalPrivacy = document.getElementById("modalPrivacy");
+document.getElementById("btnPrivacy").onclick = () => {
+    modalPrivacy.style.display = "flex";
+};
+document.getElementById("closePrivacyBtn").onclick = () => {
+    modalPrivacy.style.display = "none";
+};
+modalPrivacy.onclick = (e) => {
+    if (e.target === modalPrivacy) modalPrivacy.style.display = "none";
+};
+
+
 // init
 loadSettings();
 buildUI();
 render();
+
